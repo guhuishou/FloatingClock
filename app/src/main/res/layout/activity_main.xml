@@ -1,80 +1,130 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_gravity="center"
-    android:gravity="center"
-    android:orientation="vertical"
     tools:context=".MainActivity">
 
-    <RelativeLayout
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:orientation="horizontal">
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="20dp">
 
+        <!-- 当前时钟大小 -->
         <TextView
             android:id="@+id/tv_clocksize"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
             android:text="@string/currentclocksize"
-            android:textSize="30dp" />
-    </RelativeLayout>
+            android:textSize="24sp" />
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="20dp"
-        android:layout_marginTop="20dp"
-        android:orientation="horizontal">
-
-        <EditText
-            android:id="@+id/et_clocksize"
-            android:layout_width="100dp"
+        <!-- 设置时钟大小 -->
+        <RelativeLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_toEndOf="@+id/tv_setclocksize"
-            android:inputType="number"
-            android:textAlignment="center"
-            android:textSize="30dp" />
+            android:layout_marginTop="16dp">
 
+            <TextView
+                android:id="@+id/tv_setclocksize"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="@string/clocksize"
+                android:textSize="24sp" />
+
+            <EditText
+                android:id="@+id/et_clocksize"
+                android:layout_width="100dp"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@id/tv_setclocksize"
+                android:inputType="number"
+                android:textAlignment="center"
+                android:textSize="24sp" />
+        </RelativeLayout>
+
+        <!-- 后台运行 -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp">
+
+            <TextView
+                android:id="@+id/tv_close_clock"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="@string/run_in_background"
+                android:textSize="24sp" />
+
+            <Switch
+                android:id="@+id/st_close_clock"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@id/tv_close_clock"
+                android:switchMinWidth="90dp"
+                android:textOff="@string/close"
+                android:textOn="@string/open"
+                android:thumb="@drawable/bg_switch_thumb"
+                android:track="@drawable/bg_switch_track" />
+        </RelativeLayout>
+
+        <!-- 显示毫秒 -->
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp">
+
+            <TextView
+                android:id="@+id/tv_show_millis"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:text="@string/show_millis"
+                android:textSize="24sp" />
+
+            <Switch
+                android:id="@+id/st_show_millis"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_toEndOf="@id/tv_show_millis"
+                android:switchMinWidth="90dp"
+                android:textOff="@string/close"
+                android:textOn="@string/open"
+                android:thumb="@drawable/bg_switch_thumb"
+                android:track="@drawable/bg_switch_track" />
+        </RelativeLayout>
+
+        <!-- 分隔线 -->
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginBottom="16dp"
+            android:background="#CCCCCC" />
+
+        <!-- NTP 同步状态 -->
         <TextView
-            android:id="@+id/tv_setclocksize"
+            android:id="@+id/tv_ntp_status"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/ntp_not_synced"
+            android:textSize="20sp"
+            android:textColor="#555555" />
+
+        <!-- 手动 NTP 同步按钮 -->
+        <Button
+            android:id="@+id/btn_ntp_sync"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:text="@string/clocksize"
-            android:textSize="30dp" />
-    </RelativeLayout>
+            android:layout_marginTop="12dp"
+            android:text="@string/ntp_sync_button"
+            android:textSize="20sp" />
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="20dp"
-        android:layout_marginTop="20dp"
-        android:orientation="horizontal">
-
-        <Switch
-            android:id="@+id/st_close_clock"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_toEndOf="@+id/tv_close_clock"
-            android:switchMinWidth="90dp"
-            android:switchTextAppearance="@style/MyTextAppearance"
-            android:textOff="@string/close"
-            android:textOn="@string/open"
-            android:thumb="@drawable/bg_switch_thumb"
-            android:track="@drawable/bg_switch_track" />
-
-        <TextView
-            android:id="@+id/tv_close_clock"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:text="@string/run_in_background"
-            android:textSize="30dp" />
-    </RelativeLayout>
-</LinearLayout>
+    </LinearLayout>
+</ScrollView>

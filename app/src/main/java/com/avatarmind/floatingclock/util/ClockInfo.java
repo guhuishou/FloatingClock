@@ -11,36 +11,26 @@ public class ClockInfo {
     private int x;
     private int y;
     private int textSize;
+    private boolean showMillis;   // 是否显示毫秒
 
     public ClockInfo(int x, int y, int textSize) {
         this.x = x;
         this.y = y;
         this.textSize = textSize;
+        this.showMillis = false;
     }
 
-    public int getX() {
-        return x;
-    }
+    public int getX() { return x; }
+    public void setX(int x) { this.x = x; }
 
-    public void setX(int x) {
-        this.x = x;
-    }
+    public int getY() { return y; }
+    public void setY(int y) { this.y = y; }
 
-    public int getY() {
-        return y;
-    }
+    public int getTextSize() { return textSize; }
+    public void setTextSize(int textSize) { this.textSize = textSize; }
 
-    public void setY(int y) {
-        this.y = y;
-    }
-
-    public int getTextSize() {
-        return textSize;
-    }
-
-    public void setTextSize(int textSize) {
-        this.textSize = textSize;
-    }
+    public boolean isShowMillis() { return showMillis; }
+    public void setShowMillis(boolean showMillis) { this.showMillis = showMillis; }
 
     public String getString() {
         return new Gson().toJson(this);
@@ -54,10 +44,7 @@ public class ClockInfo {
         if (TextUtils.isEmpty(json)) {
             return null;
         }
-
-        Type type = new TypeToken<ClockInfo>() {
-        }.getType();
-        ClockInfo clockInfo = new Gson().fromJson(json, type);
-        return clockInfo;
+        Type type = new TypeToken<ClockInfo>() {}.getType();
+        return new Gson().fromJson(json, type);
     }
 }

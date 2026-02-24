@@ -4,7 +4,13 @@
     <string name="clocksizeremind">Please enter a positive integer less than 100</string>
     <string name="currentclocksize">Current Clock Size: </string>
     <string name="run_in_background">Run In Background: </string>
+    <string name="show_millis">Show Milliseconds: </string>
     <string name="open">Open</string>
     <string name="close">Close</string>
-
+    <string name="ntp_sync_button">Sync Time via NTP</string>
+    <string name="ntp_synced">✓ NTP time synced</string>
+    <string name="ntp_not_synced">NTP not synced yet</string>
+    <string name="ntp_syncing">Syncing NTP time…</string>
+    <string name="ntp_sync_success">Time sync successful!</string>
+    <string name="ntp_sync_failed">Sync failed, check network</string>
 </resources>

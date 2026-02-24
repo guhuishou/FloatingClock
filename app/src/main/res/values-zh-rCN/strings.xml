@@ -4,7 +4,13 @@
     <string name="clocksizeremind">请输入一个小于100的正整数</string>
     <string name="currentclocksize">当前时钟大小：</string>
     <string name="run_in_background">后台运行：</string>
+    <string name="show_millis">显示毫秒：</string>
     <string name="open">开</string>
     <string name="close">关</string>
-
+    <string name="ntp_sync_button">联网同步时间（NTP）</string>
+    <string name="ntp_synced">✓ NTP 时间已同步</string>
+    <string name="ntp_not_synced">尚未同步 NTP 时间</string>
+    <string name="ntp_syncing">正在同步 NTP 时间…</string>
+    <string name="ntp_sync_success">时间同步成功！</string>
+    <string name="ntp_sync_failed">同步失败，请检查网络</string>
 </resources>
