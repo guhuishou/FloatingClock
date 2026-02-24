@@ -49,6 +49,8 @@ dependencies {
     implementation 'org.greenrobot:eventbus:3.3.1'
     // Apache Commons Net for NTP sync
     implementation 'commons-net:commons-net:3.9.0'
+    // AndroidX LocalBroadcastManager
+    implementation 'androidx.localbroadcastmanager:localbroadcastmanager:1.1.0'
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'
